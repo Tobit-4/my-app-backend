@@ -1,18 +1,33 @@
-const jsonServer = require('json-server')
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router('db.json');
+const middlewares = jsonServer.defaults();
 
+server.use(middlewares);
 
-const server = jsonServer.create()
-
-const router = jsonServer.router('db.json')
-const middlewares = jsonServer.defaults()
-
-server.use(middlewares)
-server.use('/api', router)
 server.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://njmwas.github.io') // The URL you put here is for the web application that you have deployed using Github Pages
-    res.header('Access-Control-Allow-Headers', '*')
-    next()
-})
-server.listen(process.env.PORT || 5000, () => {
-    console.log('JSON Server is running')
-})
+    const allowedOrigins = [
+        'https://Tobit-4.github.io',
+        'http://localhost:3000'      
+    ];
+    const origin = req.headers.origin;
+    
+    if (allowedOrigins.includes(origin)) {
+        res.header('Access-Control-Allow-Origin', origin);
+    }
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    
+    
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
+    next();
+});
+
+server.use('/api', router);
+
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => {
+    console.log(`JSON Server is running on port ${PORT}`);
+});
