@@ -1,4 +1,155 @@
 {
-    "crops":[],
-    "regions":[]
+"crops": [
+    {
+        "name": "maize",
+        "id": 1,
+        "daysToHarvest": 90,
+        "yieldPerAcre": 20,
+        "optimalLightHours": 15,
+        "rainfallMin": 500,
+        "plantingSeason": [
+            "Mar-Apr",
+            "Aug-Sep"
+        ],
+        "seedRatePerAcre": 10,
+        "maxIdealHumidity": 80,
+        "minIdealHumidity": 60,
+        "susceptibleTo": [
+            "gray leaf spot",
+            "maydis leaf blight",
+            "common rust"
+        ],
+        "maxIdealTemp": 22,
+        "minIdealTemp": 20
+    },
+    {
+        "name": "sorghum",
+        "id": 2,
+        "daysToHarvest": 120,
+        "yieldPerAcre": 15,
+        "optimalLightHours": 7,
+        "rainfallMin": 400,
+        "plantingSeason": [
+            "Mar-Apr",
+            "Aug-Oct"
+        ],
+        "seedRatePerAcre": 4,
+        "maxIdealHumidity": 50,
+        "minIdealHumidity": 40,
+        "susceptibleTo": [
+            "Leaf blight",
+            "Anthracnose",
+            "Sorghum downy mildew"
+        ],
+        "maxIdealTemp": 34,
+        "minIdealTemp": 26
+    },
+    {
+        "name": "cabbage",
+        "id": 3,
+        "daysToHarvest": 90,
+        "yieldPerAcre": 8000,
+        "optimalLightHours": 7,
+        "rainfallMin": 350,
+        "plantingSeason": [
+            "Year-round"
+        ],
+        "seedlingsPerAcre": 15000,
+        "maxIdealHumidity": 98,
+        "minIdealHumidity": 90,
+        "susceptibleTo": [
+            "downy mildew",
+            "Black rot",
+            "Alternaria leaf spot"
+        ],
+        "maxIdealTemp": 18,
+        "minIdealTemp": 16
+    },
+    {
+        "name": "beans",
+        "id": 4,
+        "daysToHarvest": 60,
+        "yieldPerAcre": 6,
+        "optimalLightHours": 14,
+        "rainfallMin": 300,
+        "plantingSeason": [
+            "Mar-Apr",
+            "Oct-Nov"
+        ],
+        "seedRatePerAcre": 25,
+        "maxIdealHumidity": 70,
+        "minIdealHumidity": 40,
+        "susceptibleTo": [
+            "Bacterial blight",
+            "Anthracnose",
+            "root rot"
+        ],
+        "maxIdealTemp": 29,
+        "minIdealTemp": 18
+    },
+    {
+        "name": "kale",
+        "id": 5,
+        "daysToHarvest": 60,
+        "yieldPerAcre": 4000,
+        "optimalLightHours": 8,
+        "rainfallMin": 250,
+        "plantingSeason": [
+            "Year-round"
+        ],
+        "seedlingsPerAcre": 10000,
+        "maxIdealHumidity": 70,
+        "minIdealHumidity": 50,
+        "susceptibleTo": [
+            "Damping off",
+            "Downy mildew",
+            "Anthracnose"
+        ],
+        "maxIdealTemp": 21,
+        "minIdealTemp": 16
+    }
+],
+"regions": [
+    {
+        "id": 1,
+        "name": "Central Highlands",
+        "bestCrops": [
+            "maize",
+            "beans",
+            "cabbage"
+        ],
+        "altitude": [
+            1500,
+            2500
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Rift Valley",
+        "bestCrops": [
+            "maize",
+            "sorghum",
+            "beans"
+        ],
+        "altitude": [
+            1000,
+            2000
+        ]
+    },
+    {
+        "name": "Western Kenya",
+        "bestCrops": [
+            "maize",
+            "sorghum",
+            "kale"
+        ],
+        "altitude": [
+            1100,
+            1800
+        ]
+    }
+],
+"dependencies": {
+    "json-server": "^0.17.4"
+}
 }
